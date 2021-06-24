@@ -1,0 +1,12 @@
+<div class="row" *ngIf="cart">
+  <div class="col-sm-12">
+    <h1>My cart</h1>
+  </div>
+  <div class="col-sm-12" *ngFor="let p of cart.products | keyvalue; let i=index;">
+    <img [src]="p.value.product.image" style="width:70px;" alt=""> - <b>{{p.value.product.name}}</b> ({{p.value.quantity}}) | <a class="btn btn-danger"
+                                                                              (click)="removeProduct(p.value.product)">X</a>
+  </div>
+  <div class="col-sm-12">
+    <b>Total: {{cart.total | currency}}</b>
+  </div>
+</div>
